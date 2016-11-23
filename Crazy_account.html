@@ -1,0 +1,502 @@
+<html>
+<head>
+	<meta charset="utf-8">
+  	<meta name="viewport" content="width=device-width, initial-scale=1">
+  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  	<link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+<style type="text/css">
+.container
+{
+	border: 1px solid #000;
+	margin: 0 auto;
+	background: #000;	
+}
+p
+{
+	font-size: 20px;
+	font-weight: 1000;
+	font-family: 'Oswald', sans-serif;
+	text-align: center;
+	color: #fff;
+}
+.inputtype
+{
+	padding: 10px 10px 10px 10px;
+}
+input
+{	
+	background: transparent;
+	border: 1px solid #777;
+	font-size: 16px;
+	font-family: 'Oswald', sans-serif;
+}
+.line
+{
+	border-bottom: 1px solid #333;
+}
+lg
+{	
+	font-size: 13px;
+	color: #999;
+	font-weight: normal;
+}
+lg a
+{
+	text-decoration: underline;
+	color: #999;
+	font-weight: normal;
+}
+.text-center .btn
+{
+	color: #aaa;
+	background: #760117;
+	border: none;
+	font-weight: 800;
+	font-size: 16px;	
+}
+.form-control
+{
+	background-color: transparent;
+	border-radius: none;
+}
+.inputtype
+{
+	border-radius: none;
+}
+input
+{
+	border-radius: none;
+}
+input:focus
+{
+	color: red;
+}
+.form-center
+{
+	margin: 0 auto;
+}
+#email_txt
+{
+	font-size: 12px;
+}
+#fn_txt
+{
+	font-size: 12px;
+	color: red;
+}
+
+small
+{
+	margin: 0;
+	padding: 0;
+	padding: 0px 2px 2px 0px;
+	color: red;
+}
+select
+{
+	
+	font-weight: bold;
+}
+</style>
+<script type="text/javascript">
+			
+
+	function validate_email()
+	{
+		var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+			var x = document.getElementById("email1").value;
+			if (x == null || x == "" || !x.match(mailformat))
+			 {
+			 	document.getElementById("email_txt").innerHTML = "Enter a email address."
+			 	
+			 	return false;
+			 }
+			 else if (x != null || x != "" || x.match(mailformat))
+			 {
+			 		document.getElementById("email_txt").innerHTML = "";
+			 }
+	}
+	
+	function validate_fname()
+	{
+		var y = document.getElementById("fname").value;
+			 fnformat = /^[A-Za-z]+$/;
+			 if (y == null || y == "")
+			 {
+			 	document.getElementById("fn_txt").innerHTML = "Enter Your First Name."
+			 	
+			 	return false;
+			 }
+			 else if (y != null || y != "")
+			 {
+			 		document.getElementById("fn_txt").innerHTML = "";
+			 }
+	}
+
+	function validate_lname()
+	{
+		var y1 = document.getElementById("lname").value;
+			 lnformat = /^[A-Za-z]+$/;
+			 if (y1 == null || y1 == "" || !y1.match(lnformat))
+			 {
+			 	document.getElementById("ln_txt").innerHTML = "Enter Last name."
+			 	
+			 	return false;
+			 }
+			 else if (y1 != null || y1 != "")
+			 {
+			 		document.getElementById("ln_txt").innerHTML = "";
+			 }
+	}
+
+	function validate_pwd1()
+	{
+		var p = document.getElementById("pwd").value;
+		var p2 = /^[A-Za-z]\w{7,14}$/;
+			 if (p == null || p == "")
+			 {
+			 	document.getElementById("pwd_txt").innerHTML = "Fill the passwords.";
+			 	p.focus();
+			 }
+			 else if (!p.match(p2))
+			 {
+			 	document.getElementById("pwd_txt").innerHTML = "Enter valid password.";
+			 	return false;
+			 }
+			 else if (p != null || p != "" || p.match(p2))
+			 {
+			 		document.getElementById("pwd_txt").innerHTML = "";
+			 }
+	}
+
+	function validate_pwd2()
+	{
+		var p1 = document.getElementById("cpwd").value;
+		var p2 = document.getElementById("pwd").value;
+			 if (p1 == null || p1 == "")
+			 {
+			 	document.getElementById("cfpwd_txt").innerHTML = "Confirm password.";	
+			 	return false;
+			 }
+			 else if(!(p1==p2))
+			 {
+			 	document.getElementById("cfpwd_txt").innerHTML = "Password doesn't match.";	
+			 	return false;
+			 }
+			 else if (p1 != null || p1 != "")
+			 {
+			 		document.getElementById("cfpwd_txt").innerHTML = "";
+			 }
+	}
+
+	function validate_st1()
+	{
+		var st = document.getElementById("staddrs").value;
+		var ptrn = /^[0-9a-zA-Z]+$/; 
+			 if (st == null || st == "")
+			 {
+			 	document.getElementById("staddrs_txt").innerHTML = "Enter your street address.";
+			 	return false;
+			 }
+			 else if(!st.match(ptrn))
+			 {
+			 	document.getElementById("staddrs_txt").innerHTML = "Address could be only alphnumerics.";
+			 	return false;
+			 }
+			 else if (st != null || st != "")
+			 {
+			 		document.getElementById("staddrs_txt").innerHTML = "";
+			 }
+	}
+
+	function validate_st2()
+	{
+		var st = document.getElementById("staddrs1").value;
+		var ptrn = /^[0-9a-zA-Z]+$/;
+			 if (st == null || st == "")
+			 {
+			 	document.getElementById("staddrs_txt1").innerHTML = "Enter sub street."	
+			 	return false;
+			 }
+			 else if(!st.match(ptrn))
+			 {
+			 	document.getElementById("staddrs_txt1").innerHTML = "Address could be only alphnumerics.";
+			 	return false;
+			 }
+			 else if (st != null || st != "")
+			 {
+			 	document.getElementById("staddrs_txt1").innerHTML = "";
+			 }
+	}
+
+	function validate_cntry()
+	{
+		var cntry = document.getElementById("country1").value;
+			 if (cntry == null || cntry == "")
+			 {
+			 	document.getElementById("country_txt").innerHTML = "Fill your country name." 	
+			 	return false;
+			 }
+			 else if (cntry != null || cntry != "")
+			 {
+			 		document.getElementById("country_txt").innerHTML = "";
+			 }
+	}
+
+	function validate_city()
+	{
+		var ct = document.getElementById("city").value;
+		ptn = /^[A-Za-z]+$/;
+		if (ct == null || ct == "")
+		 {
+		 	document.getElementById("city_txt").innerHTML = "Enter your city.";	
+		 	return false;
+		 }
+		 else if(!ct.match(ptn))
+		 {
+		 	document.getElementById("city_txt").innerHTML = "Enter valid city name.";	
+		 	return false;	
+		 }
+		 else if (ct != null || ct != "" || ct.match(ptn))
+		 {
+			document.getElementById("city_txt").innerHTML = "";
+		 }
+	}
+
+	function validate_subcntry()
+	{
+		var scntry = document.getElementById("subcountry").value;
+			 if (scntry == null || scntry == "")
+			 {
+			 	document.getElementById("state_txt").innerHTML = "Fill the subcountry."
+			 	
+			 	return false;
+			 }
+			 else if (code != null || code != "")
+			 {
+			 	document.getElementById("pin_txt").innerHTML = "";
+			 }
+	}
+
+	function validate_mbl()
+	{
+		var ct = document.getElementById("mbl").value;
+		alert("Hello..");
+		ptn = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
+		if (ct == null || ct == "")
+		 {
+		 	document.getElementById("mbl_txt").innerHTML = "Enter Mobile Number.";	
+		 	return false;
+		 }
+		 else if(!ct.match(ptn))
+		 {
+		 	document.getElementById("mbl_txt").innerHTML = "Enter valid Mobile number.";	
+		 	return false;	
+		 }
+		 else if (ct != null || ct != "" || ct.match(ptn))
+		 {
+			document.getElementById("mbl_txt").innerHTML = "";
+		 }
+	}
+	function validate_pin()
+	{
+		var cd = document.getElementById("pincode").value;
+		zip = /^([1-9])([0-9]){5}$/;
+			 if (cd == null || cd == "")
+			 {
+			 	document.getElementById("pin_txt").innerHTML = "Enter your pincode.";
+			 	return false;
+			 }
+			 else if(!cd.match(/^([1-9])([0-9]){5}$/))
+			 {
+			 	document.getElementById("pin_txt").innerHTML = "Enter a valid pincode.";
+			 }
+			 else if(cd != null || cd != "" || cd.match(/^([1-9])([0-9]){5}$/))
+			 {
+			 	document.getElementById("pin_txt").innerHTML = "";
+			 }
+	}
+
+	function validate_gender()
+	{
+		var gndr = document.getElementById("gender").value;
+			 if (gndr == null || gndr == "")
+			 {
+			 	document.getElementById("gender_txt").innerHTML = "Gender couldn't be blank...";
+			 	
+			 	return false;
+			 }
+			 else if(gndr != null || gndr != "")
+			 {
+			 	document.getElementById("gender_txt").innerHTML = "";
+			 }		
+	}
+	function validate_bday()
+	{
+		var bdy = document.getElementById("bday").value;
+			 if (bdy == null || bdy == "")
+			 {
+			 	document.getElementById("bday_txt").innerHTML = "Enter your Birth Date.";			 	
+			 	return false;
+			 }
+			 else if(bdy != null || bdy != "")
+			 {
+			 	document.getElementById("bday_txt").innerHTML = "";
+			 }
+	}
+</script>
+</head>
+<body>
+<div class="container">
+	
+	<form action="#" onsubmit="return validateForm();" method="post" name="myForm">
+	
+	<div class="row">
+		
+		<div class="col-md-offset-2 col-xs-12 col-sm-12 col-md-8 col-lg-8">
+			<div class="form-center">		
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+			
+				<div class="row">
+					<div class="text-center">
+						<p>Create your Carzy's account.</p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 outer">
+						<input class="form-control col-xs-12 col-sm-12 col-md-12 col-lg-12" type="text" placeholder="Email*" name="femail" id="email1" onblur="validate_email();"/>
+						<small id="email_txt"></small>
+  					</div>
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+				<div class="row center">
+				
+					<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 inputtype">
+						<!-- <input class="form-control col-xs-12 col-sm-12 col-md-12 col-lg-12" type="text" placeholder="Firstname*" required id="fstname"  onsubmit="validateForm();"/> -->
+						<input class="form-control col-xs-12 col-sm-12 col-md-12 col-lg-12" name="fname" type="text" placeholder="Firstname*" id="fname" onblur="validate_fname();"/>
+						<small id="fn_txt"></small>	
+					</div>
+					<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 inputtype">
+						<input class="form-control col-xs-12 col-md-12 col-lg-12" type="text" placeholder="Lastname*" id="lname" onblur="validate_lname();"/>
+						<small id="ln_txt"></small>
+					</div>
+				
+  				</div>
+  				<div class="row">
+  				
+					<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 inputtype">
+						<input class="form-control col-xs-12 col-sm-12 col-md-12 col-lg-12" type="password" name="pswd" id="pwd" placeholder="Password*" onblur="validate_pwd1();"/>
+						<small id="pwd_txt"></small>
+					</div>
+					<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 inputtype">
+						<input class="form-control col-xs-12 col-sm-12 col-md-12 col-lg-12" type="password" name="cpswd" id="cpwd" placeholder="Confirm Password*" onblur="validate_pwd2();"/>
+						<small id="cfpwd_txt"></small>
+					</div>
+  				</div>
+  				
+  				<div class="">
+  					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 inputtype">
+						<div class="line"></div>
+					</div>
+  				</div>
+
+
+  				<div class="row">
+  				
+					<div class="col-xs-12 col-sm-6 col-md-6  col-lg-6 inputtype">
+						<input class="form-control col-xs-12 col-sm-12 col-md-12 col-lg-12" type="text" placeholder="Street Address 1*" id="staddrs" onblur="validate_st1();"/>
+						<small id="staddrs_txt"></small>
+					</div>
+					<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 inputtype">
+						<input class="form-control col-xs-12 col-sm-12 col-md-12 col-lg-12" type="text" placeholder="Street Address 2*" id="staddrs1" onblur="validate_st2();"/>
+						<small id="staddrs_txt1"></small>
+					</div>	
+  				</div>
+  				<div class="row">
+					<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 inputtype">
+						<input class="form-control col-xs-12 col-sm-12 col-md-12 col-lg-12" type="text" placeholder="City*" id="city" onblur="validate_city();"/>
+						<small id="city_txt"></small>
+					</div>
+					<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 inputtype">
+						<select class="form-control" id="country1" onblur="validate_cntry();">
+							<option value="">Select</option>
+							<option value="Australia Capital Territory">Australia Capital Territory</option>
+							<option value="Australia Capital Territory">Australia Capital Territory</option>
+							<option value="Australia Capital Territory">Australia Capital Territory</option>
+						</select>
+						<small id="country_txt"></small>
+					</div>
+  				</div>
+  				<div class="row">
+					<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 inputtype">
+						<input class="form-control col-xs-12 col-sm-12 col-md-12 col-lg-12" type="text" placeholder="Postcode*" id="pincode" onblur="validate_pin();"/>
+						<small id="pin_txt"></small>
+						<!-- <input class="form-control col-xs-12 col-md-12 col-lg-12" type="text" placeholder="Postcode*" id="pincd" onmouseout="validate_pin();/>
+						<small id="pin_txt"></small> -->
+					</div>
+					<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 inputtype">
+						
+						<select class="form-control" id="subcountry"  onblur="validate_subcntry();">
+							<option value="">Select sub country</option>
+							<option value="Sub Country 1">Sub Country 1</option>
+							<option value="Sub Country 2">Sub Country 2</option>
+							<option value="Sub Country 3">Sub Country 3</option>
+						</select>
+						<small id="state_txt"></small>
+					</div>
+  				</div>
+
+
+  				<div>
+  					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 inputtype">
+						<div class="line"></div>
+					</div>
+  				</div>
+
+  				<div class="row">
+					<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 inputtype">
+						<input class="form-control col-xs-12 col-sm-12 col-md-12 col-lg-12" type="text" placeholder="Mobile*" id="mbl" onblur="validate_mbl();"/>
+						<small id="mbl_txt"></small>
+					</div>
+					<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 inputtype">
+						<input class="form-control col-xs-12 col-sm-12 col-md-12 col-lg-12" type="text" placeholder="Home Phone" id="phone"/>
+						<small id="homephone_txt"></small>
+					</div>
+  				</div>
+  				
+  				<div>
+  					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 inputtype">
+						<div class="line"></div>
+					</div>
+  				</div>
+  				
+  				<div class="row">
+					<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 inputtype">
+						<select class="form-control" id="gender" onblur="validate_gender();">
+							<option value="">Gender</option>
+							<option value="male">Male</option>
+							<option value="female">Female</option>
+						</select>
+						<small id="gender_txt"></small>
+					</div>
+					<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 inputtype">
+						<input class="form-control col-xs-12 col-sm-12 col-md-12 col-lg-12" type="date" placeholder="Birthday" id="bday" onblur="validate_bday();"/>
+						<small id="bday_txt"></small>
+					</div>
+  				</div>
+
+  				<div class="row">
+					<div class="text-center">
+						<input value="proceed to checkout" type="submit" class="btn btn-default";">
+					</div>
+				</div>
+
+			</div>
+		</div>
+		</div>
+	</div>
+	</form>
+</div>
+</body>
+</html>
